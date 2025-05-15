@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Ubicación Actual
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <p><strong>Latitud:</strong> {{ latitude }}</p>
+      <p><strong>Longitud:</strong> {{ longitude }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <div *ngIf="!locationEnabled">
+    <ion-button expand="block" (click)="enableLocation()">
+      Habilitar Ubicación
+    </ion-button>
+  </div>
+
+  <div *ngIf="locationEnabled">
+    <ion-button expand="block" color="danger" (click)="disableLocation()">
+      Deshabilitar Ubicación
+    </ion-button>
+  </div>
+
+  <div *ngIf="locationEnabled">
+  <ion-button expand="block" color="primary" (click)="abrirEnGoogleMaps()">
+    Click Aquí Para Conocer tu Ubicación
+  </ion-button>
+
+  <ion-button expand="block" color="success" (click)="subirUbicacionAFirebase()">
+    Subir Su Ubicación a Firebase
+  </ion-button>
+</div>
+
+
+</ion-content>
